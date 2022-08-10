@@ -21,7 +21,7 @@ private:
     bool binarySearch(vector<vector<int>>& matrix, int target, int startx, int starty, int endx, int endy) {
         if(startx > endx || starty > endy)
             return false;
-        print2DVec(matrix, startx, starty, endx, endy);
+        // print2DVec(matrix, startx, starty, endx, endy);
         int midx = startx + ((endx - startx) >> 1);
         int midy = starty + ((endy - starty) >> 1);
         if(matrix[midx][midy] == target)
