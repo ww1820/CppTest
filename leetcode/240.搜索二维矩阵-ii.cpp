@@ -22,6 +22,7 @@ using namespace std;
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        print2DVec(matrix);
         return binarySearch(matrix, target, 0, 0, matrix.size() - 1, matrix[0].size() - 1);
     }
 
@@ -38,6 +39,15 @@ private:
             return binarySearch(matrix, target, midx + 1, midy, endx, endy) || binarySearch(matrix, target, midx, midy+ 1, midx, endy);
         } else {
             return binarySearch(matrix, target, startx, starty, midx - 1, endy) || binarySearch(matrix, target, midx, starty, endx, midy-1);
+        }
+    }
+
+    void print2DVec(vector<vector<int>>& matrix){
+        for(auto & row : matrix) {
+            for(auto elem : row) {
+                printf("%d\t", elem);
+            }
+            printf("\n");
         }
     }
 };
