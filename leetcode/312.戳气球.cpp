@@ -13,56 +13,40 @@ class Solution {
 public:
     int maxCoins(vector<int>& nums) {
         const int n = nums.size();
-        pos = vector<bool>(n, true);
-        return backTracing(nums);
+
+        val.resize(n+2);
+        val[0] = 1;
+        val[n+1] = 1;
+
+        for (int i = 1; i <= n; ++i) {
+            val[i] = nums[i - 1];
+        }
+
+        rec.resize(n + 2, vector<int>(n + 2, -1));
+
+        return dfs(0, n + 1);
     }
 
 private:
-    int res = 0;
-    unordered_map<vector<bool>, int> maxSumDict;
-    vector<bool> pos; // 存储位置信息
+    vector<vector<int>> rec;
+    vector<int> val;
 
 
-    int backTracing(const vector<int>& nums) {
-        // 剪枝
-        if(maxSumDict.find(pos) != maxSumDict.end()) {
-            return maxSumDict[pos];
-        }
-        
-        if (accumulate(pos.begin(), pos.end(), 0) == 0)
-        { // 终止条件
+    int dfs(int left, int right) {
+        if(left >= right - 1) {
             return 0;
         }
-
-        int sum = 0;
-        for (int i = 0; i < nums.size(); ++i)
-        {
-            if(pos[i]) { // pos[i] 没还被戳破
-                pos[i] = false;
-                int nextLevel = backTracing(nums); // 下一层最大的分数
-                maxSumDict.emplace(make_pair(pos, nextLevel));
-                sum = max(sum, cal(nums, i) + nextLevel);
-                pos[i] = true;
-            }
+        if(rec[left][right] != -1) {
+            return rec[left][right];
         }
 
-        return sum;
-    }
+        for (int i = left + 1; i < right; ++i) {
+            int sum = val[left] * val[i] * val[right];
+            sum += dfs(left, i) + dfs(i, right);
+            rec[left][right] = max(rec[left][right], sum);
+        }
 
-    int cal(const vector<int>& nums, int k){
-        int l = k - 1;
-        int r = k + 1;
-        
-        while (l >= 0 && !pos[l])
-            --l;
-        
-        while (r < nums.size() && !pos[r])
-            ++r;
-
-        l = (l == -1) ? 1 : nums[l];
-        r = (r == nums.size()) ? 1 : nums[r];
-
-        return (l * nums[k] * r);
+        return rec[left][right];
     }
 };
 // @lc code=end

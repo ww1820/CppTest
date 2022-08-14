@@ -27,7 +27,7 @@ int main() {
     vector<vector<int>> test = {{0, 0}, {1, 1}, {2, 2}, {3, 3}, {4, 4}, {5, 5}, {60, 60}, {70, 70}, {80, 80}, {90, 90}};
 
     unordered_set<string> tmp;
-    // unordered_set<vector<int>> tmp = {"1,1", "1,2", ... , "4,3", "4,4"};
+    // unordered_set<string> tmp = {"1,1", "1,2", ... , "4,3", "4,4"};
 
     for (int i = 0; i < p; ++i) {
         int x = boundary[i][0];
