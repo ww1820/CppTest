@@ -7,17 +7,6 @@ vector<vector<int>> direction{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 int res = INT_MIN;
 int flag = false;
 
-// void print2DVec(vector<vector<int>>& matrix){
-// 	for (auto & row : matrix) {
-// 		for (auto elem : row) {
-// 			printf("%d\t", elem);
-// 		}
-// 		printf("\n");
-// 	}
-// 	printf("\n");
-
-// }
-
 void dfs(vector<vector<int>> & cave, int hp, int m, int n, int x, int y) {
 	if(x < 0 || x >= m || y < 0 || y >= n || cave[x][y] == -1 || cave[x][y] == -4) {
 		return;
