@@ -1,30 +1,30 @@
-// #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 
-// using namespace std;
+using namespace std;
 
-
-struct A
+class A
 {
-    int ax;
-    virtual void f0() {}
+public:
+    virtual void func() {
+        printf("A\n");
+    }
 };
 
-struct B
+class B : public A
 {
-    int bx;
-    virtual void f1() {}
+public:
+    void func() override {
+        printf("B\n");
+    }
+    void fun() {
+        printf("Not virtual. ");
+    }
 };
-
-// struct C : public A, public B
-// {
-//     int cx;
-//     void f0() override {}
-//     void f1() override {}
-// };
 
 
 
 int main() {
-
+    A *a = new B();
+    a->func();
     return 0;
 }
