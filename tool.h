@@ -5,8 +5,6 @@
 
 using namespace std;
 
-ifstream infile("/data/workspace/cpp_test/test.txt", ios::in); 
-
 void print2DVec(vector<vector<int>>& matrix){
 	for (auto & row : matrix) {
 		for (auto elem : row) {
