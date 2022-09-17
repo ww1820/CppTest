@@ -10,12 +10,12 @@ using namespace std;
 
 int main() {
     int n, ans = INT32_MAX;
-    infile >> n;
+    cin >> n;
     vector<int> nums(n);
 
     for (int i = 0; i < n; i++)
     {
-        infile >> nums[i];
+        cin >> nums[i];
     }
 
     for (int i = 0; i < n - 1; ++i) {

@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
     int n, k;
-    infile >> n >> k;
+    cin >> n >> k;
 
     deque<long> peaches;
 
@@ -18,7 +18,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         long a;
-        infile >> a;
+        cin >> a;
         sum += a;
         peaches.emplace_back(a);
     }

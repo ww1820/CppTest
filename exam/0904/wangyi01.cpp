@@ -44,7 +44,7 @@ unordered_set<int> dfs(int v)
 
 int main() {
     int n;
-    infile >> n;
+    cin >> n;
 
     tree.resize(n);
     ans.resize(n);
@@ -52,13 +52,13 @@ int main() {
     for (int i = 0; i < n; ++i)
     { // 权重
         int w;
-        infile >> w;
+        cin >> w;
         weight.emplace(i,w);
     }
 
     for (int i = 0; i < n - 1; ++i) {
         int u, v;
-        infile >> u >> v;
+        cin >> u >> v;
         tree[u - 1].emplace_back(v - 1);
     }
 
