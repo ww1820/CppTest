@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 char color[3] = {'R', 'G', 'B'};
@@ -14,6 +13,8 @@ int main() {
     {
         int l, r;
         cin >> l >> r;
+        --l;
+        --r;
         vec[l] += 1;
         vec[r + 1] -= 1;
     }
