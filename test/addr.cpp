@@ -2,7 +2,32 @@
 
 using namespace std;
 
+class A {
+public:
+    virtual void fun() {
+        cout << "A" << endl;
+    }
+
+    virtual ~A() {
+        cout << "~A" << endl;
+    }
+};
+
+class B : public A {
+public:
+    void fun() {
+        cout << "B" << endl;
+    }
+
+     ~B() {
+        cout << "~B" << endl;
+    }
+};
+
 int main() {
-    int a[2][2] = {{1, 2}, {3, 4}};
-    cout << (char*)(a+1) - (char*)(a) << endl;
+    A *a = new B();
+    a->fun();
+    delete a;
+    a = nullptr;
+    return 0;
 }
