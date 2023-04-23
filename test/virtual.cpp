@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include "/data/workspace/cpp_test/tool.h"
+#include "/data/ubuntu/workspace/CppTest/tool.h"
 using namespace std;
 
 class Base {
